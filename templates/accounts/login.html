@@ -1,0 +1,37 @@
+{% extends 'default.html' %}
+{% load  static %}
+{% load socialaccount %}
+
+{% block style %}<link type="text/css" href="{% static 'css/accounts/login.css' %}" rel="stylesheet" />{% endblock style %}
+
+{% get_providers as socialaccount_providers %}
+
+{% block title %}Страница авторизации{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'account:accounts_login' %}" method="post" class="login_form">
+        {% csrf_token %}
+        <div class="top_form">
+            <div class="form_login_label form_top_label">Вход</div>
+            <div class="form_signup_label form_top_label" onclick="location.href='{% url 'account:accounts_signup' %}'">Регистрация</div>
+        </div>
+        <div class="content_form">
+            <div class="login">
+                <div class="login_label label_text">E-mail</div>
+                {{ form.login}}
+            </div>
+            <div class="password">
+                <div class="password_label label_text">Пароль</div>
+                {{ form.password}}
+            </div>
+            <input type="submit" value="Войти" id="btn_input">
+            <div class="google_icon">
+                <div class="google_label">Войти с помощью соцсетей:</div>
+                <div class="google_img" onclick="location.href='{% provider_login_url 'google' %}/?next=';"></div>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock content %}
+

@@ -1,0 +1,134 @@
+
+/* Стили для страниц создания и редактирования */
+
+.form{
+    margin: 0 auto;
+    width: 50%;
+}
+
+.form_top{
+    display: flex;    
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#id_title{
+    display: flex;
+    justify-content: start;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000
+}
+
+.title{
+    position: relative;
+    width: 30%;
+}
+
+.label{
+    position: absolute;
+    top:-25px;
+    left: 5px;
+    color: #fefff7;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#id_author{
+    display: flex;
+    justify-content: start;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000
+}
+
+.author{
+    position: relative;
+    width: 30%;
+}
+
+
+
+#id_category{
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 15px;
+    overflow: auto;
+    padding: 1px 2px 1px 5px;
+}
+
+#id_category>option{
+    display: flex;
+    padding-left: 10px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000
+}
+
+.form_category{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31%;
+    margin-top: 30px;
+}
+
+#id_content{
+    display: flex;
+    padding-left: 5px;
+    width: 100%;
+    height: 400px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000
+}
+.content{
+    position: relative;
+    margin-top: 30px;
+}
+
+#form_button{
+    display: flex;
+    padding: 24px 32px;
+    gap: 10px;
+    background: #529AC0;
+    box-shadow: 7px 8px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin: 20px auto;
+}

@@ -1,0 +1,61 @@
+/* Для отдельных постов */
+
+.post {
+    position: relative;
+    width: 95%;
+    height: 90%;
+    background: #FFFFFF;
+    border: 1px solid #D9D7D7;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.post_title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+    
+}
+
+.post_pubdate {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6B6B6B;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
+
+.post_content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.post_author {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #858585;
+}
+
+.posts_rating {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.rating_amount {
+    margin-left: 5px;
+}

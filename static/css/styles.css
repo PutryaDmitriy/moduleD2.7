@@ -1,0 +1,149 @@
+/* Для шаблона default */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: #B9DEF2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0;
+    padding: 0;
+    z-index: 1;
+}
+
+.main_content{
+    position: relative;
+}
+
+#posts_wind{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#icon {
+    font-family: 'Itim';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+}
+
+.category {
+    height: 100%;
+    width: auto;
+}
+
+.category > a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+
+#logout_btn{
+    font-weight: 700;
+}
+
+.main_content {
+    display: flex;
+    background: url(../assets/back.png);
+    background-size: cover;
+    background-color: grey;
+    background-blend-mode: luminosity;
+    min-height: 54em;
+    padding-bottom: 80px;
+    padding-top: 110px;
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #B9DEF2;
+}
+
+#social {
+    display: flex;
+    height: 100%;
+    width: 12%;
+    
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+#labels {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 25%;
+    height: 100%;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 5px 0;
+}
+
+#copyright {
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    height: 100%;
+    align-items: center;
+    padding-right: 20px;
+}
+
+
+/* Для паджинатора */
+.page_list{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #FFFFFF;
+    width: 250px;
+    margin: 12px auto;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 15px;
+}
+
+.page_list>*{
+    padding: 0 5px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.current{
+    text-decoration: underline;
+}

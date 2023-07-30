@@ -1,0 +1,224 @@
+#profile_page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.topProfilePage{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.user_info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 17px;
+    width: 234px;
+    height: 144px;
+    background: rgba(112, 112, 112, 0.77);
+    border-radius: 15px;
+}
+
+.userName{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+.status{
+    font-family: 'Itim';
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+#edit_profile{
+    background: none;
+}
+
+#edit_profile_caption{
+    font-family: 'Itim';
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration-line: underline;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+
+.profile_search{
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    width: 611px;
+    height: 40px;
+    background: rgba(210, 210, 210, 0.59);
+    border-radius: 15px;
+}
+
+.profile_search>span{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.exitBtn>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    width: 87px;
+    height: 40px;
+    background: #B9DEF2;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.userInfoWindow{
+    margin: 0 auto;
+}
+
+.tab {
+    overflow: hidden;
+  }
+  
+  .tab button {
+    width: 245px;
+    height: 80px;
+    background: #D9D9D9;
+    box-shadow: inset -3px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px 15px 0px 0px;
+    margin: -3px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    border: 0;
+  }
+  
+  .tab button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+  }
+  
+  .tab button.active {
+    background-color: #FFF;
+  }
+  
+.tabcontent {
+  position: relative;
+  top:-11px;
+  width: 1103px;
+  height: 606px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 32px;
+}
+
+.author__posts{
+  display: flex;
+}
+
+.author__post{
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  border: 1px solid #6E6E6E;
+  border-radius: 15px;
+  padding: 5px;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.author__post__title{
+  align-self: center;
+  font-family: 'Inter';
+  font-weight: 550;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 20px;
+}
+
+.author__post__body{
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+.author__post__date{
+  display: flex;
+  justify-content: space-between;
+}
+
+.subscribes{
+  display: flex;
+}
+
+.subscribe_block{
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  border: 1px solid #6E6E6E;
+  border-radius: 15px;
+  padding: 5px;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.subscribe__category{
+  align-self: center;
+  font-family: 'Inter';
+  font-weight: 550;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 20px;
+}
+
+.subscribe__posts{
+  display: flex;
+  flex-direction: column;
+  max-height: 147px;
+  overflow: hidden;
+}
+
+.subscribe__post__title{
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  padding: 8px 12px;
+  gap: 10px;
+  background: #B9DEF2;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.subscribe__post__title:hover{
+  cursor: pointer;
+}
+
+.subscribe__signout>a{
+  align-self: center;
+  text-decoration: none;
+  color: #9e9292;
+  margin-left: 20px;
+}
+

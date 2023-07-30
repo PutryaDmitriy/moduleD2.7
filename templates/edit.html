@@ -1,0 +1,41 @@
+{% extends 'default.html' %}
+{% load static %}
+
+{% block style %}<link type="text/css" href="{% static 'css/add_update.css' %}" rel="stylesheet" />{% endblock style %}
+{% block title %} Редактировать новость {% endblock title %}
+
+
+{% block content %}
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <div class="form_top">
+            <div class="title">
+                <div class="label">
+                    Заголовок:
+                </div>
+                {{ form.title }}
+            </div>
+            <div class="author">
+                <div class="label">
+                    Автор:
+                </div>
+                {{ form.author }}
+            </div>
+        </div>
+        <div class="form_category">
+            <div class="label">
+                Категория:
+            </div>
+            {{ form.category }}
+        </div>
+        <div class="content">
+            <div class="label">
+                Текст:
+            </div>
+            {{ form.content }}
+        </div>
+        
+        <input type="submit" value="Внести изменения" id="form_button">
+
+    </form>
+{% endblock content %}

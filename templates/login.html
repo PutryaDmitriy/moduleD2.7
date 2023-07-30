@@ -1,0 +1,22 @@
+{% extends 'default.html' %}
+{% load  static %}
+{% load socialaccount %}
+
+{% block title %}Страница авторизации{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'account:login' %}" method="post">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+
+        {{ form.password.label_tag }}
+        {{ form.password }}
+
+        <input type="submit" value="Войти">
+
+
+    </form>
+    <a href="{% provider_login_url 'google' %}">Google</a>
+    <p>Хрень</p>
+{% endblock content %}

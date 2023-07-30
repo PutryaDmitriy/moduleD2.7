@@ -1,0 +1,42 @@
+{% extends 'default.html' %}
+{% load  static %}
+
+{% block style %}<link type="text/css" href="{% static 'css/accounts/signup.css' %}" rel="stylesheet" />{% endblock style %}
+
+{% block title %}Страница авторизации{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'account_signup' %}" method="post" class="login_form">
+        {% csrf_token %}
+        <div class="top_form">
+            <div class="form_login_label form_top_label" onclick="location.href='{% url 'account:accounts_login' %}'">Вход</div>
+            <div class="form_signup_label form_top_label">Регистрация</div>
+        </div>
+        <div class="content_form">
+            <div class="input_block">
+                <div class="label_text">Введите e-mail</div>
+                {{ form.email}}
+            </div>
+            <div class="input_block">
+                <div class="label_text">Придумайте пароль</div>
+                {{ form.password1}}
+            </div>
+            <div class="input_block">
+                <div class="label_text">Повторите пароль</div>
+                {{ form.password2}}
+            </div>
+            <input type="submit" value="Регистрация" id="btn_input">
+        </div>
+
+
+
+        <!-- <h2>Форма авторизации</h2>
+        {{ form.as_p }}
+
+        <input type="submit" value="Зарегистрироваться"> -->
+
+
+    </form>
+
+
+{% endblock content %}

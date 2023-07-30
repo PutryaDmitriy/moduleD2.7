@@ -1,0 +1,162 @@
+/* Для страницы со всеми постами */
+
+#top_line {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 100px;
+}
+
+#post_length{
+    position: relative;;
+    bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 10px;
+    background: #727272;
+    border-radius: 15px;
+    width: fit-content;
+    height: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 24px;
+    color:white;
+}
+
+#create_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
+    background: #B9DEF2;
+    border-radius: 15px;
+    width: 223px;
+    height: 40px;
+    position: relative;;
+    bottom: 20px;
+
+}
+
+#create_post>a {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    text-decoration: none;
+}
+
+#create_post>a>span {
+    padding-left: 5px;
+}
+
+.posts_wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 341px);
+    grid-auto-flow: row dense;
+    justify-content: center;
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    justify-items: stretch;
+    align-items: stretch;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.posts {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+    gap: 12px;
+    width: 341px;
+    height: 379px;
+    border: 1px solid #9E9A9A;
+    border-radius: 15px;
+    background: #FFFFFF;
+}
+
+.post_link {
+    text-decoration: none;
+    color: black;
+}
+
+.posts_title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 35px;
+    margin-bottom: 15px;
+}
+
+.posts_pubdate {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 15px;
+    color: #6B6B6B;
+    margin-bottom: 5px;
+}
+
+.posts_content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.category_link {
+    text-decoration: none;
+    color: #6B6B6B;
+}
+
+.post_bottom {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.delete_post {
+    margin-left: 10px;
+}
+
+.posts_rating {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.rating_amount {
+    margin-left: 5px;
+}
+
+#author{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+

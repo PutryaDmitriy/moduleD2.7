@@ -1,0 +1,65 @@
+{% extends 'default.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block style %}<link type="text/css" href="{% static 'css/all_post.css' %}" rel="stylesheet" />{% endblock style %}
+
+{% block title %}
+    Посты по категории
+{% endblock title %}
+
+{% block content %}
+    <div id="posts_wind"> 
+        <div>
+            <div id="top_line">
+                {% if subscribed %}
+                <div id="post_length" onclick="location.href='{% url 'news:unsubscribe' category.id %}'">Отписаться: {{category}}</div>
+                {% else %}
+                <div id="post_length" onclick="location.href='{% url 'news:subscribe' category.id %}'">Подписаться на категорию: {{category}}</div>
+                {% endif %}
+            </div>
+            <div class="posts_wrapper">
+                {% for post in posts %}
+                <div class="posts">
+                    <a href="{% url 'news:post_detail' post.id %}" class="post_link">
+                        <div class="posts_title">{{post.title|truncatewords:5|censor:""}}</div>
+                        <div class="posts_pubdate">{{post.pub_date|date:'d-m-Y H:i'}} {{post.author}}</div>
+                        <div class="posts_content">{{post.content|truncatechars:50|censor:""}}</div>
+                        <div class="post_bottom">
+                            <div class="posts_rating" style="bottom:0px">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.7836 15.878C21.3079 14.692 21.5991 13.38 21.5991 12C21.5991 6.69807 17.301 2.4 11.9991 2.4C6.69714 2.4 2.39908 6.69807 2.39908 12C2.39908 17.3019 6.69714 21.6 11.9991 21.6C13.7061 21.6 15.309 21.1545 16.698 20.3734L21.6009 21.5991L20.7836 15.878Z" stroke="#747474" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div class="rating_amount">{{post.rating}} </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if is_paginated %}
+        <div class="page_list">
+
+            {% if page_obj.has_previous %}
+                <a href="?page=1">1</a>
+                <a href="?page={{ page_obj.previous_page_nember }} "><<<</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a class="current">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">>>></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+    </div>
+{% endblock content %}

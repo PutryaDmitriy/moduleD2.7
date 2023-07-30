@@ -1,0 +1,135 @@
+{% extends 'default.html' %}
+{% load static %}
+
+{% block title %}
+Личный кабинет
+{% endblock title %}
+
+{% block style %}
+<link type="text/css" href="{% static 'css/accounts/profile.css' %}" rel="stylesheet" />
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock style %}
+
+{% block content %}
+<div id="profile_page">
+    <div class="topProfilePage">
+        <img src="{% static 'assets/avatar.png' %}" alt="avatar" width="125px" height="125px">
+        <div class="user_info">
+            <div class="userName">{{ user.username }}</div>
+            <div class="status">{{ status }}</div>
+            <button id="edit_profile">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.8 16.5514H16.8M1.20007 16.5514L5.56606 15.6717C5.79784 15.625 6.01065 15.5109 6.17779 15.3437L15.9515 5.56461C16.4201 5.09576 16.4197 4.33577 15.9508 3.86731L13.8803 1.79923C13.4115 1.33097 12.6519 1.33129 12.1835 1.79995L2.40884 11.58C2.24202 11.7469 2.12812 11.9593 2.08138 12.1906L1.20007 16.5514Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span id="edit_profile_caption">Редактировать профиль</span>
+            </button>
+        </div>
+        <div class="profile_search">
+            <span>Поиск...</span>
+            <img src="{% static 'assets/search.png' %}" alt="search" width="17px" height="17px">
+        </div>
+        <div class="profileMessages">
+            <img src="{% static 'assets/message.png' %}" alt="search" width="27px" height="27px">
+        </div>
+        <div class="profileNotifications">
+            <img src="{% static 'assets/notify.png' %}" alt="search" width="27px" height="27px">
+        </div>
+        <div class="exitBtn">
+            <a href="{% url 'news:logout' %}" style="font-weight: 700;">Выход</a>
+        </div>
+    </div>
+    <div class="userInfoWindow">
+
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'tab__articles')">Мои статьи</button>
+            <button class="tablinks" id = "article__button" onclick="openTab(event, 'tab__subscribe')">Подписки</button>
+            <button class="tablinks" onclick="openTab(event, 'tab__favorite')">Избранное</button>
+        </div>
+        
+        <div id="tab__articles" class="tabcontent">
+            {% if status == "Читатель" %}
+                <p>Вы пока не стали автором</p>
+                <a href="/accounts/upgrade/" id="author">Стать автором</a>
+            {% endif %}
+            {% if status == "Автор" %} 
+                {% if author_posts %}
+                <div class="author__posts">
+                    {% for post in author_posts %}
+                    <div class="author__post">
+                        <div class="author__post__title">{{post.title}}</div>
+                        <div class="author__post__body">{{post.content}}</div>
+                        <div class="author__post__date">
+                            <a href="{% url 'news:post_update' post.id %}">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.8 16.5516H16.8M1.20001 16.5516L5.566 15.6719C5.79777 15.6252 6.01059 15.511 6.17773 15.3438L15.9514 5.56478C16.42 5.09592 16.4197 4.33593 15.9507 3.86747L13.8803 1.7994C13.4115 1.33113 12.6519 1.33145 12.1835 1.80011L2.40877 11.5802C2.24196 11.7471 2.12806 11.9594 2.08132 12.1907L1.20001 16.5516Z" stroke="#747474" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>    
+                            </a>
+                            {{post.pub_date}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p>У вас пока нет своих статей</p>
+                {% endif %} 
+                
+            {% endif %}
+        </div>
+        
+        <div id="tab__subscribe" class="tabcontent">
+            <div class="subscribes">
+                {% for category in categories %}
+                    {% for subscribe in category.subscribers.all %}
+                        {% if subscribe == user %}
+                            <div class="subscribe_block">
+                                <div class="subscribe__category">{{ category.category }}:</div>
+                                <div class="subscribe__posts">
+                                    {% for cat, post in posts.items %}
+                                    {% if cat == category %}
+                                        {% for pos in post %}
+                                            <div class="subscribe__post__title">{{ pos.title }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="subscribe__signout"><a href="{% url 'news:unsubscribe' category.id %}">Отписаться</a></div>
+                            </div>
+
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div id="tab__favorite" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="content" style="display: flex; flex-direction: column;">
+    <h1>Hi {{ user.username }}!</h1>
+    <p>It's your personal page</p>
+    <p>You subscribe:</p>
+    <div class="subscribes" style="display: flex; flex-direction: column;">
+        {% for category in categories %}
+            {% for subscribe in category.subscribers.all %}
+                {% if subscribe == user %}
+                    <div class="subscribe_block" style="display: flex;">
+                        <div>{{ category.category }}</div>
+                        <div><a href="{% url 'news:unsubscribe' category.id %}">Отписаться</a></div>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div> -->
+
+{% endblock content %}  

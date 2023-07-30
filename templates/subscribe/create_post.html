@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пост</title>
+</head>
+<body>
+    <h1>Добавлена новость по категории {{category.category}}</h1>
+    <p>{{ post.title }}</p>
+    <p>{{ post.preview }}</p>
+    <p>{{ post.author }}</p>
+    <a href="http://127.0.0.1:8000{% url 'news:post_detail' post.id %}">Прочитать статью</a>
+</body>
+</html>
